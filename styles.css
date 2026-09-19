@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #111111;
+}
+
+header,
+footer,
+main,
+nav,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.site-header {
+  padding: 24px 0 14px;
+}
+
+h1 {
+  margin: 0 0 28px;
+  font-size: 34px;
+  font-weight: 800;
+  color: #111111;
+}
+
+nav {
+  margin-bottom: 26px;
+}
+
+nav a {
+  margin-right: 22px;
+  text-decoration: none;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #222222;
+}
+
+nav a:hover {
+  color: #6b6b6b;
+}
+
+.hero-image {
+  margin-bottom: 6px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 425px;
+  object-fit: cover;
+}
+
+.content-section {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  margin: 18px 0 14px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #111111;
+}
+
+p,
+ul,
+li,
+th,
+td {
+  font-family: 'Manrope', Arial, sans-serif;
+  color: #111111;
+}
+
+p {
+  margin: 0 0 24px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+ul {
+  margin: 0 0 28px 20px;
+  padding: 0;
+}
+
+li {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 3px;
+}
+
+table {
+  width: 430px;
+  margin: 0 0 28px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #555555;
+  padding: 10px 12px;
+  text-align: center;
+  font-size: 16px;
+}
+
+th {
+  font-weight: 700;
+}
+
+td {
+  font-weight: 500;
+}
+
+tbody td:nth-child(2) {
+  text-align: center;
+}
+
+footer {
+  margin-top: 10px;
+  padding: 24px 0;
+  background-color: black;
+  color: white;
+}
+
+footer p,
+footer a {
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+footer a {
+  text-decoration: none;
+  font-family: 'Manrope', Arial, sans-serif;
+}
+
+footer a:hover {
+  color: #d0d0d0;
+}
+
+@media (max-width: 700px) {
+  .container {
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin-right: 16px;
+    margin-bottom: 10px;
+  }
+
+  .hero-image img {
+    height: auto;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  th,
+  td,
+  p,
+  li {
+    font-size: 15px;
+  }
+}
