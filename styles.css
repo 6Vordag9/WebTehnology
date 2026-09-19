@@ -9,6 +9,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   color: #111111;
+  background-color: url('image.png');
 }
 
 header,
