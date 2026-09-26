@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Оформите заказ в Food FRYDAY — выберите напиток, заполните форму и получите доставку по Москве.">
+  <title>Food FRYDAY — Сделать заказ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="order.css">
+  <link rel="stylesheet" href="print.css" media="print">
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="site-header">
+      <div class="container">
+        <h1>Food FRYDAY</h1>
+        <nav class="main-nav">
+          <a href="index.html">О нас</a>
+          <a href="lunch.html">Собрать заказ</a>
+          <a href="order.html" class="active">Сделать заказ</a>
+          <a href="index.html#contacts">Контакты</a>
+          <a href="auth.html">Авторизация</a>
+          <a href="feedback.html">Обратная связь</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- ===== Секция выбора напитков ===== -->
+      <section class="menu-section">
+        <h2>Выберите напиток</h2>
+        <div class="dishes-grid">
+          <div class="dish-card">
+            <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400&h=300&fit=crop"
+                 alt="Апельсиновый сок со свежим апельсином" width="400" height="300" loading="lazy">
+            <p class="dish-price">120₽</p>
+            <p class="dish-name">Апельсиновый сок</p>
+            <p class="dish-weight">300 мл</p>
+            <button type="button">Добавить</button>
+          </div>
+
+          <div class="dish-card">
+            <img src="https://images.unsplash.com/photo-1571680322279-a226e6a4cc2a?w=400&h=300&fit=crop"
+                 alt="Яблочный сок с яблоком" width="400" height="300" loading="lazy">
+            <p class="dish-price">90₽</p>
+            <p class="dish-name">Яблочный сок</p>
+            <p class="dish-weight">300 мл</p>
+            <button type="button">Добавить</button>
+          </div>
+
+          <div class="dish-card">
+            <img src="https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=400&h=300&fit=crop"
+                 alt="Морковный сок со свежей морковью" width="400" height="300" loading="lazy">
+            <p class="dish-price">110₽</p>
+            <p class="dish-name">Морковный сок</p>
+            <p class="dish-weight">300 мл</p>
+            <button type="button">Добавить</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Секция оформления заказа ===== -->
+      <section class="order-section">
+        <h2 class="order-title">Сделать заказ</h2>
+
+        <form action="https://httpbin.org/post" method="POST" class="order-form">
+          <div class="order-columns">
+            <!-- Левая колонка: заказ -->
+            <div class="order-column">
+              <h3>Ваш заказ</h3>
+
+              <div class="form-group">
+                <label for="soup">Суп</label>
+                <select id="soup" name="soup">
+                  <option value="">-- Выберите суп --</option>
+                  <option value="tomato">Томатный суп с базиликом</option>
+                  <option value="mushroom">Крем-суп из белых грибов</option>
+                  <option value="chicken">Куриный суп с лапшой</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="main-dish">Главное блюдо</label>
+                <select id="main-dish" name="main_dish">
+                  <option value="">-- Выберите главное блюдо --</option>
+                  <option value="burger">Бургер «Классик»</option>
+                  <option value="pizza">Пицца «Пепперони»</option>
+                  <option value="hotdog">Хот-дог «Нью-Йорк»</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="drink">Напиток</label>
+                <select id="drink" name="drink">
+                  <option value="">-- Выберите напиток --</option>
+                  <option value="orange">Апельсиновый сок</option>
+                  <option value="apple">Яблочный сок</option>
+                  <option value="carrot">Морковный сок</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="comment">Комментарии к заказу</label>
+                <textarea id="comment" name="comment" rows="5"></textarea>
+              </div>
+            </div>
+
+            <!-- Правая колонка: данные -->
+            <div class="order-column">
+              <h3>Ваши данные</h3>
+
+              <div class="form-group">
+                <label for="name">Имя</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+
+              <div class="form-group">
+                <div class="checkbox-group">
+                  <input type="checkbox" id="subscribe" name="subscribe" value="on" checked>
+                  <label for="subscribe">Получать информацию о скидках и акциях</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Номер телефона</label>
+                <input type="tel" id="phone" name="phone" required>
+              </div>
+
+              <div class="form-group">
+                <label for="address">Адрес доставки</label>
+                <input type="text" id="address" name="address" required>
+                <p class="form-hint">Доставка осуществляется только по Москве</p>
+              </div>
+
+              <fieldset class="form-fieldset">
+                <legend>Время доставки:</legend>
+                <div class="radio-group">
+                  <div class="radio-option">
+                    <input type="radio" id="time-asap" name="delivery_time" value="asap" checked>
+                    <label for="time-asap">Как можно скорее</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="time-exact" name="delivery_time" value="exact">
+                    <label for="time-exact">К указанному времени</label>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="form-group">
+                <label for="delivery-time">Укажите время доставки</label>
+                <input type="time" id="delivery-time" name="delivery_time_exact" min="07:00" max="23:00">
+                <p class="form-hint">Доступное время доставки с 7:00 до 23:00</p>
+              </div>
+
+              <div class="form-actions">
+                <button type="reset" class="btn-reset">Сбросить</button>
+                <button type="submit" class="btn-submit">Отправить</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer id="contacts" class="site-footer">
+      <div class="container">
+        <p>Позвонить нам <a href="tel:+70000000000">+7-000-000-00-00</a></p>
+        <p>© 2025 Food FRYDAY. Все права защищены.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

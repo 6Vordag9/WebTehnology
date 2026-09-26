@@ -1,0 +1,317 @@
+
+
+.menu-section {
+  margin-bottom: 50px;
+}
+
+.menu-section h2 {
+  margin: 0 0 20px;
+  font-size: 28px;
+  font-weight: 800;
+}
+.dishes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.dish-card {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px;
+  border-radius: 35px;
+  cursor: pointer;
+  background-color: #ffffff;
+  filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+  border: 2px solid transparent;
+  transition: border 0.2s ease, background-color 0.2s ease;
+}
+
+.dish-card:hover {
+  border: 2px solid tomato;
+}
+
+.dish-card img {
+  width: 100%;
+  border-radius: 35px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.dish-price {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.dish-name {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  flex-grow: 1;
+}
+
+.dish-weight {
+  margin: 0 0 15px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #808080;
+}
+
+.dish-card button {
+  margin-top: auto;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f1eee9;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #111111;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dish-card:hover button {
+  background-color: tomato;
+  color: #ffffff;
+}
+
+
+.order-section {
+  margin-bottom: 50px;
+}
+
+.order-title {
+  text-align: center;
+  margin: 0 0 40px;
+  font-size: 32px;
+  font-weight: 800;
+  color: #111111;
+}
+
+.order-columns {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.order-column {
+  flex: 1;
+  min-width: 0;
+}
+
+.order-column h3 {
+  margin: 0 0 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label,
+.form-fieldset legend {
+  display: block;
+  margin-bottom: 8px;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #111111;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="time"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #111111;
+  border-radius: 4px;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 15px;
+  color: #111111;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: 2px solid tomato;
+  outline-offset: 1px;
+  border-color: tomato;
+}
+
+.form-hint {
+  margin: 6px 0 0;
+  font-size: 14px;
+  font-style: italic;
+  color: #555555;
+  font-weight: 400;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.checkbox-group label {
+  margin: 0;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.form-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.form-fieldset legend {
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.radio-option input[type="radio"] {
+  margin: 0;
+  cursor: pointer;
+}
+
+.radio-option label {
+  margin: 0;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.form-actions button {
+  flex: 1;
+  padding: 12px 30px;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-reset {
+  background-color: #ffffff;
+  color: #111111;
+  border: 1px solid #111111;
+}
+
+.btn-reset:hover {
+  background-color: #f1eee9;
+}
+
+.btn-submit {
+  background-color: #111111;
+  color: #ffffff;
+  border: 2px solid #111111;
+}
+
+.btn-submit:hover {
+  background-color: tomato;
+  border-color: tomato;
+  color: #ffffff;
+}
+
+
+@media (max-width: 800px) {
+  .dishes-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dish-card {
+    padding: 20px 25px;
+  }
+
+  .dish-price {
+    font-size: 20px;
+  }
+
+  .dish-name {
+    font-size: 16px;
+  }
+
+  .order-columns {
+    gap: 30px;
+  }
+
+  .order-title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dishes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dish-card {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .dish-card img {
+    border-radius: 20px;
+  }
+
+  .order-columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .order-title {
+    font-size: 24px;
+  }
+
+  .menu-section h2 {
+    font-size: 22px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+}
