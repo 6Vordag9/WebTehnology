@@ -1,24 +1,40 @@
+/* ===== Базовые стили ===== */
 * {
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+}
+
+body {
   font-family: 'Manrope', Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #111111;
-  background-color: url('image.png');
+  background-color: #ffffff;
+  background-image: url('../image.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-header,
-footer,
-main,
-nav,
-div {
-  margin: 0;
-  padding: 0;
+/* Обёртка для прижатия футера */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.site-footer {
+  flex-shrink: 0;
 }
 
 .container {
@@ -28,6 +44,7 @@ div {
   padding: 0 20px;
 }
 
+/* ===== Шапка ===== */
 .site-header {
   padding: 24px 0 14px;
 }
@@ -39,23 +56,32 @@ h1 {
   color: #111111;
 }
 
-nav {
+/* ===== Навигация (flexbox) ===== */
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
   margin-bottom: 26px;
 }
 
-nav a {
-  margin-right: 22px;
+.main-nav a {
   text-decoration: none;
   font-family: 'Manrope', Arial, sans-serif;
   font-size: 17px;
   font-weight: 500;
   color: #222222;
+  transition: color 0.2s ease;
 }
 
-nav a:hover {
+.main-nav a:hover {
   color: #6b6b6b;
 }
 
+.main-nav a.active {
+  color: tomato;
+}
+
+/* ===== Контент ===== */
 .hero-image {
   margin-bottom: 6px;
 }
@@ -78,11 +104,7 @@ h2 {
   color: #111111;
 }
 
-p,
-ul,
-li,
-th,
-td {
+p, ul, li, th, td {
   font-family: 'Manrope', Arial, sans-serif;
   color: #111111;
 }
@@ -105,14 +127,14 @@ li {
   margin-bottom: 3px;
 }
 
+/* ===== Таблица ===== */
 table {
   width: 430px;
   margin: 0 0 28px;
   border-collapse: collapse;
 }
 
-th,
-td {
+th, td {
   border: 1px solid #555555;
   padding: 10px 12px;
   text-align: center;
@@ -127,33 +149,31 @@ td {
   font-weight: 500;
 }
 
-tbody td:nth-child(2) {
-  text-align: center;
-}
-
-footer {
+/* ===== Футер ===== */
+.site-footer {
   margin-top: 10px;
   padding: 24px 0;
   background-color: black;
   color: white;
 }
 
-footer p,
-footer a {
+.site-footer p,
+.site-footer a {
   color: white;
   font-size: 16px;
   font-weight: 400;
 }
 
-footer a {
+.site-footer a {
   text-decoration: none;
-  font-family: 'Manrope', Arial, sans-serif;
+  transition: color 0.2s ease;
 }
 
-footer a:hover {
+.site-footer a:hover {
   color: #d0d0d0;
 }
 
+/* ===== Адаптивность главной ===== */
 @media (max-width: 700px) {
   .container {
     max-width: 100%;
@@ -163,10 +183,8 @@ footer a:hover {
     font-size: 30px;
   }
 
-  nav a {
-    display: inline-block;
-    margin-right: 16px;
-    margin-bottom: 10px;
+  .main-nav a {
+    font-size: 16px;
   }
 
   .hero-image img {
@@ -177,10 +195,38 @@ footer a:hover {
     width: 100%;
   }
 
-  th,
-  td,
-  p,
-  li {
+  th, td, p, li {
     font-size: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 26px;
+  }
+
+  .main-nav {
+    gap: 10px;
+  }
+
+  .main-nav a {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p, li {
+    font-size: 14px;
+  }
+
+  th, td {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+
+  table {
+    width: 100%;
   }
 }

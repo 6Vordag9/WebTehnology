@@ -1,0 +1,141 @@
+/* ===== Заголовок страницы ===== */
+.page-title {
+  margin: 0 0 30px;
+  font-size: 32px;
+  font-weight: 800;
+  color: #111111;
+}
+
+/* ===== Секции меню ===== */
+.menu-section {
+  margin-bottom: 50px;
+}
+
+.menu-section h2 {
+  margin: 0 0 20px;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+/* ===== Сетка блюд (CSS Grid) ===== */
+.dishes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+/* ===== Карточка блюда (Flex) ===== */
+.dish-card {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px;
+  border-radius: 35px;
+  cursor: pointer;
+  background-color: #ffffff;
+  filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+  transition: border 0.2s ease, background-color 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.dish-card:hover {
+  border: 2px solid tomato;
+}
+
+/* Изображение */
+.dish-card img {
+  width: 100%;
+  border-radius: 35px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* Цена */
+.dish-price {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #111111;
+}
+
+/* Название — прижимаем кнопку и вес вниз */
+.dish-name {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  flex-grow: 1;
+}
+
+/* Вес/объём */
+.dish-weight {
+  margin: 0 0 15px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #808080;
+}
+
+/* Кнопка */
+.dish-card button {
+  margin-top: auto;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f1eee9;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #111111;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Контекстный селектор: кнопка внутри карточки при hover */
+.dish-card:hover button {
+  background-color: tomato;
+  color: #ffffff;
+}
+
+/* ===== Адаптивность страницы ланча ===== */
+@media (max-width: 800px) {
+  .dishes-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dish-card {
+    padding: 20px 25px;
+  }
+
+  .dish-price {
+    font-size: 20px;
+  }
+
+  .dish-name {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dishes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 26px;
+  }
+
+  .menu-section h2 {
+    font-size: 22px;
+  }
+
+  .dish-card {
+    padding: 20px;
+  }
+
+  .dish-card img {
+    border-radius: 20px;
+  }
+
+  .dish-card {
+    border-radius: 20px;
+  }
+}

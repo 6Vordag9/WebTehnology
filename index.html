@@ -3,85 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Food FRYDAY — доставка фаст-фуда от знаменитого шева по Москве.">
-  <title>Food FRYDAY</title>
+  <meta name="description" content="Food FRYDAY — доставка фаст-фуда от знаменитого шефа по Москве.">
+  <title>Food FRYDAY — Главная</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="print.css" media="print">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1>Food FRYDAY</h1>
-      <nav>
-        <a href="#about">О нас</a>
-        <a href="#lunch">Собрать заказ</a>
-        <a href="#orders">Заказы</a>
-        <a href="#contacts">Контакты</a>
-        <a href="auth.html">Авторизация</a>
-        <a href="feedback.html">Авторизация</a>
-      </nav>
-    </div>
-  </header>
+  <div class="page-wrapper">
+    <header class="site-header">
+      <div class="container">
+        <h1>Food FRYDAY</h1>
+        <nav class="main-nav">
+          <a href="index.html" class="active">О нас</a>
+          <a href="lunch.html">Собрать заказ</a>
+          <a href="#orders">Заказы</a>
+          <a href="#contacts">Контакты</a>
+          <a href="auth.html">Авторизация</a>
+          <a href="feedback.html">Обратная связь</a>
+        </nav>
+      </div>
+    </header>
 
-  <main class="container">
-    <section class="hero-image">
-      <img src="https://chefrestoran.ru/wp-content/uploads/2025/02/IMG_0362-Uluchsheno-NR-2-819x1024.jpg" alt="Блюда для заказа" width="1200" height="800" loading="lazy">
-    </section>
+    <main class="container">
+      <section class="hero-image">
+        <img src="image1.jpg" 
+             alt="Аппетитный бургер с сочной котлетой" 
+             width="1200" height="800" loading="lazy">
+      </section>
 
-    <section id="about" class="content-section">
-      <h2>О нас</h2>
-      <p>Food FRYDAY - доставка фаст-фуда в Москве.</p>
-    </section>
+      <section id="about" class="content-section">
+        <h2>О нас</h2>
+        <p>Food FRYDAY — доставка фаст-фуда в Москве. Мы готовим только из свежих продуктов, 
+           используем авторские рецепты и доставляем заказы за 30 минут. Наш шеф — победитель 
+           кулинарных конкурсов, а каждая котлета прожаривается по фирменной технологии.</p>
+      </section>
 
-    <section id="lunch" class="content-section">
-      <h2>Преимущества Food FRYDAY</h2>
-      <ul>
-        <li>Вкусно</li>
-        <li>Быстро</li>
-        <li>Безопастно</li>
-      </ul>
-    </section>
+      <section id="lunch" class="content-section">
+        <h2>Преимущества Food FRYDAY</h2>
+        <ul>
+          <li>Вкусно — только проверенные рецепты</li>
+          <li>Быстро — доставка за 30 минут</li>
+          <li>Безопасно — санитарный контроль на каждом этапе</li>
+        </ul>
+      </section>
 
-    <section id="orders" class="content-section">
-      <h2>Топ-4 популярных блюд</h2>
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Название</th>
-            <th>Цена</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Бургер</td>
-            <td>385₽</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Пицца</td>
-            <td>365₽</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Хот-дог</td>
-            <td>270₽</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Курица гриль</td>
-            <td>150₽</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  </main>
+      <section id="orders" class="content-section">
+        <h2>Топ-4 популярных блюд</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>Название</th>
+              <th>Цена</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Бургер «Классик»</td>
+              <td>385₽</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Пицца «Пепперони»</td>
+              <td>365₽</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Хот-дог «Нью-Йорк»</td>
+              <td>270₽</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Курица гриль</td>
+              <td>150₽</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
 
-  <footer id="contacts">
-    <div class="container">
-      <p>Позвонить нам <a href="tel:+70000000000">+7-000-000-00-00</a></p>
-    </div>
-  </footer>
+    <footer id="contacts" class="site-footer">
+      <div class="container">
+        <p>Позвонить нам <a href="tel:+70000000000">+7-000-000-00-00</a></p>
+        <p>© 2025 Food FRYDAY. Все права защищены.</p>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

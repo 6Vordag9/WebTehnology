@@ -3,35 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Форма обратной связи</title>
+    <title>Food FRYDAY — Обратная связь</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="print.css" media="print">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: url('image.png') no-repeat center center fixed;
-            background-size: cover;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-      
-
         .form-container {
             background: white;
             padding: 40px;
             width: 100%;
             max-width: 500px;
+            margin: 0 auto;
+            border-radius: 20px;
+            filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
         }
 
-        h2 {
+        .form-container h2 {
             text-align: center;
             margin-bottom: 30px;
             color: #333;
@@ -41,30 +30,31 @@
             margin-bottom: 20px;
         }
 
-        label {
+        .form-container label {
             display: block;
             margin-bottom: 8px;
             color: #333;
             font-weight: bold;
         }
 
-        input[type="text"],
-        input[type="email"],
-        select,
-        textarea {
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container select,
+        .form-container textarea {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
-            font-family: Arial, sans-serif;
+            font-family: 'Manrope', Arial, sans-serif;
             font-size: 14px;
+            border-radius: 5px;
         }
 
-        textarea {
+        .form-container textarea {
             min-height: 120px;
             resize: vertical;
         }
 
-        input[type="file"] {
+        .form-container input[type="file"] {
             width: 100%;
             padding: 8px 0;
         }
@@ -101,7 +91,7 @@
             cursor: pointer;
         }
 
-        button {
+        .form-container button {
             width: 100%;
             padding: 12px;
             background: #333;
@@ -110,9 +100,11 @@
             font-size: 16px;
             cursor: pointer;
             transition: background 0.3s;
+            border-radius: 10px;
+            font-family: 'Manrope', Arial, sans-serif;
         }
 
-        button:hover {
+        .form-container button:hover {
             background: #555;
         }
 
@@ -129,79 +121,103 @@
 
         .nav-links a:hover {
             text-decoration: underline;
+            color: tomato;
         }
     </style>
 </head>
 <body>
-    
-    <div class="form-container">
-        <h2>Форма обратной связи</h2>
-        <form action="https://httpbin.org/post" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="fio">ФИО</label>
-                <input type="text" id="fio" name="fio" required>
+    <div class="page-wrapper">
+        <header class="site-header">
+            <div class="container">
+                <h1>Food FRYDAY</h1>
+                <nav class="main-nav">
+                    <a href="index.html">О нас</a>
+                    <a href="lunch.html">Собрать заказ</a>
+                    <a href="index.html#orders">Заказы</a>
+                    <a href="index.html#contacts">Контакты</a>
+                    <a href="auth.html">Авторизация</a>
+                    <a href="feedback.html" class="active">Обратная связь</a>
+                </nav>
             </div>
+        </header>
 
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
+        <main class="container" style="display:flex; justify-content:center; align-items:center; padding: 40px 20px;">
+            <div class="form-container">
+                <h2>Форма обратной связи</h2>
+                <form action="https://httpbin.org/post" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="fio">ФИО</label>
+                        <input type="text" id="fio" name="fio" required>
+                    </div>
 
-            <div class="form-group">
-                <label>Откуда узнали о нас</label>
-                <div class="radio-group">
-                    <div class="radio-option">
-                        <input type="radio" id="source1" name="source" value="search" checked>
-                        <label for="source1">Поисковые системы</label>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
-                    <div class="radio-option">
-                        <input type="radio" id="source2" name="source" value="social">
-                        <label for="source2">Социальные сети</label>
+
+                    <div class="form-group">
+                        <label>Откуда узнали о нас</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="source1" name="source" value="search" checked>
+                                <label for="source1">Поисковые системы</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="source2" name="source" value="social">
+                                <label for="source2">Социальные сети</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="source3" name="source" value="friends">
+                                <label for="source3">От друзей</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="source4" name="source" value="other">
+                                <label for="source4">Другое</label>
+                            </div>
+                        </div>
                     </div>
-                    <div class="radio-option">
-                        <input type="radio" id="source3" name="source" value="friends">
-                        <label for="source3">От друзей</label>
+
+                    <div class="form-group">
+                        <label for="type">Тип обращения</label>
+                        <select id="type" name="type" required>
+                            <option value="">Выберите тип</option>
+                            <option value="complaint">Жалоба</option>
+                            <option value="suggestion">Предложение</option>
+                        </select>
                     </div>
-                    <div class="radio-option">
-                        <input type="radio" id="source4" name="source" value="other">
-                        <label for="source4">Другое</label>
+
+                    <div class="form-group">
+                        <label for="message">Текст сообщения</label>
+                        <textarea id="message" name="message" required></textarea>
                     </div>
+
+                    <div class="form-group">
+                        <label for="attachment">Вложения</label>
+                        <input type="file" id="attachment" name="attachment">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent">Даю согласие на обработку персональных данных</label>
+                        </div>
+                    </div>
+
+                    <button type="submit">Отправить</button>
+                </form>
+
+                <div class="nav-links">
+                    <a href="index.html">Главная</a>
+                    <a href="auth.html">Вход</a>
                 </div>
             </div>
+        </main>
 
-            <div class="form-group">
-                <label for="type">Тип обращения</label>
-                <select id="type" name="type" required>
-                    <option value="">Выберите тип</option>
-                    <option value="complaint">Жалоба</option>
-                    <option value="suggestion">Предложение</option>
-                </select>
+        <footer class="site-footer">
+            <div class="container">
+                <p>Позвонить нам <a href="tel:+70000000000">+7-000-000-00-00</a></p>
             </div>
-
-            <div class="form-group">
-                <label for="message">Текст сообщения</label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="attachment">Вложения</label>
-                <input type="file" id="attachment" name="attachment">
-            </div>
-
-            <div class="form-group">
-                <div class="checkbox-group">
-                    <input type="checkbox" id="consent" name="consent" required>
-                    <label for="consent">Даю согласие на обработку персональных данных</label>
-                </div>
-            </div>
-
-            <button type="submit">Отправить</button>
-        </form>
-
-        <div class="nav-links">
-            <a href="index.html">Главная</a>
-            <a href="auth.html">Вход</a>
-        </div>
+        </footer>
     </div>
 </body>
 </html>

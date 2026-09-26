@@ -3,34 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Аутентификация</title>
+    <title>Food FRYDAY — Авторизация</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="print.css" media="print">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: url('image.png') no-repeat center center fixed;
-            background-size: cover;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-
         .form-container {
             background: white;
             padding: 40px;
             width: 100%;
             max-width: 400px;
+            margin: 0 auto;
+            border-radius: 20px;
+            filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
         }
 
-        h2 {
+        .form-container h2 {
             text-align: center;
             margin-bottom: 30px;
             color: #333;
@@ -40,20 +30,21 @@
             margin-bottom: 20px;
         }
 
-        label {
+        .form-container label {
             display: block;
             margin-bottom: 8px;
             color: #333;
             font-weight: bold;
         }
 
-        input[type="text"],
-        input[type="password"] {
+        .form-container input[type="text"],
+        .form-container input[type="password"] {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
-            font-family: Arial, sans-serif;
+            font-family: 'Manrope', Arial, sans-serif;
             font-size: 14px;
+            border-radius: 5px;
         }
 
         .checkbox-group {
@@ -72,7 +63,7 @@
             cursor: pointer;
         }
 
-        button {
+        .form-container button {
             width: 100%;
             padding: 12px;
             background: #333;
@@ -81,9 +72,11 @@
             font-size: 16px;
             cursor: pointer;
             transition: background 0.3s;
+            border-radius: 10px;
+            font-family: 'Manrope', Arial, sans-serif;
         }
 
-        button:hover {
+        .form-container button:hover {
             background: #555;
         }
 
@@ -100,38 +93,62 @@
 
         .nav-links a:hover {
             text-decoration: underline;
+            color: tomato;
         }
     </style>
 </head>
 <body>
-    
-    <div class="form-container">
-        <h2>Вход в систему</h2>
-        <form action="https://httpbin.org/post" method="POST">
-            <div class="form-group">
-                <label for="login">Логин</label>
-                <input type="text" id="login" name="login" required>
+    <div class="page-wrapper">
+        <header class="site-header">
+            <div class="container">
+                <h1>Food FRYDAY</h1>
+                <nav class="main-nav">
+                    <a href="index.html">О нас</a>
+                    <a href="lunch.html">Собрать заказ</a>
+                    <a href="index.html#orders">Заказы</a>
+                    <a href="index.html#contacts">Контакты</a>
+                    <a href="auth.html" class="active">Авторизация</a>
+                    <a href="feedback.html">Обратная связь</a>
+                </nav>
             </div>
+        </header>
 
-            <div class="form-group">
-                <label for="password">Пароль</label>
-                <input type="password" id="password" name="password" required>
-            </div>
+        <main class="container" style="display:flex; justify-content:center; align-items:center; padding: 40px 20px;">
+            <div class="form-container">
+                <h2>Вход в систему</h2>
+                <form action="https://httpbin.org/post" method="POST">
+                    <div class="form-group">
+                        <label for="login">Логин</label>
+                        <input type="text" id="login" name="login" required>
+                    </div>
 
-            <div class="form-group">
-                <div class="checkbox-group">
-                    <input type="checkbox" id="remember" name="remember" value="on">
-                    <label for="remember">Запомнить меня</label>
+                    <div class="form-group">
+                        <label for="password">Пароль</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="remember" name="remember" value="on">
+                            <label for="remember">Запомнить меня</label>
+                        </div>
+                    </div>
+
+                    <button type="submit">Войти</button>
+                </form>
+
+                <div class="nav-links">
+                    <a href="index.html">Главная</a>
+                    <a href="feedback.html">Обратная связь</a>
                 </div>
             </div>
+        </main>
 
-            <button type="submit">Войти</button>
-        </form>
-
-        <div class="nav-links">
-            <a href="index.html">Главная</a>
-            <a href="feedback.html">Обратная связь</a>
-        </div>
+        <footer class="site-footer">
+            <div class="container">
+                <p>Позвонить нам <a href="tel:+70000000000">+7-000-000-00-00</a></p>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
