@@ -1,105 +1,412 @@
-/* ===== Стили для печати ===== */
-@media print {
-  * {
-    background: transparent !important;
-    color: #000000 !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-    filter: none !important;
-  }
+/* ===== Стили для печати =====
+   Подключается через <link rel="stylesheet" href="print.css" media="print">
+   и применяется только при предпросмотре и печати страницы (Ctrl+P).
 
-  body {
-    background-image: none !important;
-    font-size: 12pt;
-    line-height: 1.4;
-  }
+   Правила:
+   1. Только область действия через классы (никаких глобальных селекторов),
+      чтобы не затрагивать элементы без заданных печатных стилей.
+   2. Чёрный текст на белом фоне — принтер не печатает фон, поэтому тёмные
+      плашки и тени убираются, иначе текст на них станет нечитаемым.
+   3. Печатные стили подключены последними, поэтому переопределяют
+      styles.css / order.css / auth.css / feedback.css без !important.
+=================================== */
 
-  /* Скрываем навигацию, кнопки и декоративные элементы */
-  .main-nav,
-  button,
-  .hero-image,
-  .site-footer a {
-    display: none !important;
-  }
+/* ---------- Параметры страницы ---------- */
+@page {
+  size: A4 portrait;
+  margin: 15mm;
+}
 
-  .site-header {
-    border-bottom: 1px solid #000000;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-  }
+/* ---------- Базовый сброс ---------- */
+html,
+body {
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0;
+  padding: 0;
+  background: none !important;
+  color: #000000 !important;
+  font-size: 11pt;
+  line-height: 1.4;
+  box-shadow: none;
+  text-shadow: none;
+}
 
-  h1 {
-    font-size: 20pt;
-    margin-bottom: 10px;
-  }
+/* Обёртка: снимаем flex-колонку и min-height, иначе футер уезжает
+   на отдельную пустую страницу. */
+.page-wrapper {
+  display: block !important;
+  min-height: 0 !important;
+}
 
-  h2 {
-    font-size: 16pt;
-    page-break-after: avoid;
-  }
+.page-wrapper main {
+  display: block !important;
+  flex: none !important;
+  padding: 0 !important;
+}
 
-  p, li, td, th {
-    font-size: 12pt;
-  }
+/* ---------- Шапка ---------- */
+.site-header {
+  padding: 0 0 8px;
+  margin: 0 0 16px;
+  border-bottom: 2px solid #000000;
+}
 
-  .container {
-    max-width: 100%;
-    padding: 0;
-  }
+.site-header h1 {
+  margin: 0;
+  font-size: 20pt;
+  font-weight: 800;
+  color: #000000;
+}
 
-  .page-wrapper {
-    display: block;
-    min-height: auto;
-  }
+/* ---------- Скрываем интерактив и декор ---------- */
+.main-nav,
+.hero-image,
+.page-wrapper button,
+.dish-card button,
+.form-actions {
+  display: none !important;
+}
 
-  /* Сетка блюд при печати — в одну колонку */
-  .dishes-grid {
-    display: block;
-  }
+/* ---------- Заголовки ---------- */
+.content-section h2,
+.menu-section h2,
+.order-title,
+.order-column h3,
+.auth-form h2,
+.feedback-form h2 {
+  margin: 16px 0 8px;
+  font-size: 14pt;
+  font-weight: 700;
+  color: #000000;
+  break-after: avoid;
+  page-break-after: avoid;
+}
 
-  .dish-card {
-    display: block;
-    page-break-inside: avoid;
-    border: 1px solid #cccccc;
-    border-radius: 0;
-    padding: 10px;
-    margin-bottom: 15px;
-    filter: none;
-  }
+/* ---------- Текст ---------- */
+.content-section p,
+.content-section li {
+  margin: 0 0 8px;
+  font-size: 11pt;
+  color: #000000;
+}
 
-  .dish-card img {
-    max-width: 100px;
-    border-radius: 0;
-    float: left;
-    margin-right: 15px;
-  }
+.content-section ul {
+  margin: 0 0 8px 18px;
+  padding: 0;
+}
 
-  .dish-price,
-  .dish-name {
-    font-size: 14pt;
-  }
+/* ---------- Таблица ---------- */
+.content-section table {
+  width: 100%;
+  margin: 0 0 12px;
+  border-collapse: collapse;
+}
 
-  .dish-weight {
-    color: #555555 !important;
-  }
+.content-section th,
+.content-section td {
+  padding: 6px 8px;
+  border: 1px solid #000000;
+  font-size: 10pt;
+  color: #000000;
+  background: none !important;
+}
 
-  .site-footer {
-    background: transparent !important;
-    border-top: 1px solid #000000;
-    margin-top: 20px;
-    padding-top: 10px;
-  }
+.content-section thead {
+  display: table-header-group; /* заголовок повторяется на каждой странице */
+}
 
-  .site-footer p {
-    color: #000000 !important;
-  }
+.content-section tr {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
+/* ---------- Карточки напитков ---------- */
+.dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: stretch; /* в order.css стоит center — карточки должны занять колонку */
+  gap: 8px;
+}
 
-  th, td {
-    border: 1px solid #000000;
-  }
+.dish-card {
+  display: block;
+  width: auto;
+  max-width: none;
+  min-height: 0;
+  padding: 8px 10px;
+  border: 1px solid #999999;
+  border-radius: 0;
+  background: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* Картинка сверху, без float — иначе соседние карточки наезжают друг на друга */
+.dish-card img {
+  display: block;
+  float: none;
+  width: 100%;
+  height: auto;
+  max-height: 80px;
+  object-fit: cover;
+  margin: 0 0 6px;
+  border-radius: 0;
+}
+
+.dish-card p {
+  margin: 0 0 2px;
+  font-size: 10pt;
+  color: #000000 !important;
+}
+
+.dish-price {
+  font-size: 12pt !important;
+  font-weight: 700;
+}
+
+.dish-weight {
+  font-size: 9pt !important;
+  color: #555555 !important;
+}
+
+/* ---------- Форма заказа ---------- */
+.order-columns {
+  display: block; /* на A4 две колонки слишком узкие — раскладываем в одну */
+  gap: 0;
+}
+
+.order-column {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0 0 18px;
+}
+
+.form-group {
+  margin: 0 0 12px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.form-group label,
+.form-fieldset legend {
+  display: block;
+  margin: 0 0 4px;
+  font-size: 10pt;
+  font-weight: 700;
+  color: #000000;
+}
+
+/* Поля: убираем белый фон, оставляем рамку, чтобы было видно границы полей.
+   Значение input/select/textarea браузер печатает сам. */
+/* Типы перечислены явно: общий селектор .form-group input растянул бы
+   чекбоксы и радиокнопки на всю ширину колонки */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="time"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 4px 6px;
+  border: 1px solid #666666;
+  border-radius: 0;
+  background: none !important;
+  color: #000000 !important;
+  font-size: 10pt;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Чекбоксы и радиокнопки печатаем в натуральную величину */
+.form-group input[type="checkbox"],
+.form-group input[type="radio"] {
+  width: auto;
+  margin: 0 5px 0 0;
+  vertical-align: middle;
+}
+
+.form-group textarea {
+  min-height: 60px;
+}
+
+.form-hint {
+  margin: 3px 0 0;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: #555555 !important;
+}
+
+.form-fieldset {
+  margin: 0 0 12px;
+  padding: 8px 10px;
+  border: 1px solid #999999;
+}
+
+.radio-group,
+.checkbox-group {
+  display: block;
+}
+
+.radio-option,
+.checkbox-group {
+  margin-bottom: 4px;
+}
+
+.radio-option label,
+.checkbox-group label {
+  display: inline;
+  margin: 0 0 0 6px;
+  font-size: 10pt;
+  font-weight: 400;
+}
+
+/* ---------- Галерея супов ---------- */
+.soups-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 0 0 12px;
+}
+
+.soup-card {
+  margin: 0;
+  padding: 6px 8px;
+  border: 1px solid #999999;
+  border-radius: 0;
+  background: none !important;
+  overflow: visible;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.soup-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 70px;
+  object-fit: cover;
+  margin: 0 0 4px;
+}
+
+.soup-card figcaption {
+  padding: 0;
+  font-size: 9pt;
+  font-weight: 700;
+  color: #000000;
+}
+
+/* ---------- Формы на auth.html / feedback.html ---------- */
+.auth-form,
+.feedback-form {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #999999;
+  border-radius: 0;
+  background: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.auth-form .form-group,
+.feedback-form .form-group {
+  margin-bottom: 12px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="password"],
+.feedback-form input[type="text"],
+.feedback-form input[type="email"],
+.feedback-form input[type="file"],
+.feedback-form select,
+.feedback-form textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 4px 6px;
+  border: 1px solid #666666;
+  border-radius: 0;
+  background: none !important;
+  color: #000000 !important;
+  font-size: 10pt;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.auth-form input[type="checkbox"],
+.feedback-form input[type="checkbox"],
+.feedback-form input[type="radio"] {
+  width: auto;
+  margin: 0 5px 0 0;
+  vertical-align: middle;
+}
+
+.feedback-form textarea {
+  min-height: 80px;
+}
+
+.feedback-form .radio-group,
+.auth-form .checkbox-group,
+.feedback-form .checkbox-group {
+  display: block;
+}
+
+.feedback-form .radio-option,
+.auth-form .checkbox-group,
+.feedback-form .checkbox-group {
+  margin-bottom: 4px;
+}
+
+.auth-form .form-group > label,
+.feedback-form .form-group > label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 10pt;
+  font-weight: 700;
+  color: #000000;
+}
+
+.auth-form .checkbox-group label,
+.feedback-form .radio-option label,
+.feedback-form .checkbox-group label {
+  display: inline;
+  margin: 0 0 0 6px;
+  font-size: 10pt;
+  font-weight: 400;
+}
+
+.nav-links {
+  margin-top: 12px;
+  text-align: left;
+}
+
+/* ---------- Футер: контакты оставляем ---------- */
+.site-footer {
+  margin-top: 18px;
+  padding: 8px 0 0;
+  border-top: 2px solid #000000;
+  background: none !important;
+  color: #000000 !important;
+}
+
+.site-footer p {
+  margin: 0 0 4px;
+  font-size: 10pt;
+  color: #000000 !important;
+}
+
+/* Ссылку на телефон не прячем — это контакт, который нужен на бумаге,
+   но убираем подчёркивание и синий цвет. */
+.site-footer a {
+  display: inline;
+  color: #000000 !important;
+  text-decoration: none;
 }

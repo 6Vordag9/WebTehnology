@@ -3,99 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Вход в личный кабинет Food FRYDAY — отслеживайте статус заказа и историю доставок.">
     <title>Food FRYDAY — Авторизация</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth.css">
     <link rel="stylesheet" href="print.css" media="print">
-    <style>
-        .form-container {
-            background: white;
-            padding: 40px;
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
-            border-radius: 20px;
-            filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
-        }
-
-        .form-container h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #333;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-container label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: bold;
-        }
-
-        .form-container input[type="text"],
-        .form-container input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            font-family: 'Manrope', Arial, sans-serif;
-            font-size: 14px;
-            border-radius: 5px;
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .checkbox-group input[type="checkbox"] {
-            margin: 0;
-        }
-
-        .checkbox-group label {
-            font-weight: normal;
-            margin: 0;
-            cursor: pointer;
-        }
-
-        .form-container button {
-            width: 100%;
-            padding: 12px;
-            background: #333;
-            color: white;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s;
-            border-radius: 10px;
-            font-family: 'Manrope', Arial, sans-serif;
-        }
-
-        .form-container button:hover {
-            background: #555;
-        }
-
-        .nav-links {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .nav-links a {
-            color: #333;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .nav-links a:hover {
-            text-decoration: underline;
-            color: tomato;
-        }
-    </style>
 </head>
 <body>
     <div class="page-wrapper">
@@ -103,17 +19,17 @@
             <div class="container">
                 <h1>Food FRYDAY</h1>
                 <nav class="main-nav">
-                <a href="index.html">О нас</a>
-                <a href="order.html" class="active">Сделать заказ</a>
-                <a href="index.html#contacts">Контакты</a>
-                <a href="auth.html">Авторизация</a>
-                <a href="feedback.html">Обратная связь</a>
+                    <a href="index.html">О нас</a>
+                    <a href="order.html">Сделать заказ</a>
+                    <a href="index.html#contacts">Контакты</a>
+                    <a href="auth.html" class="active">Авторизация</a>
+                    <a href="feedback.html">Обратная связь</a>
                 </nav>
             </div>
         </header>
 
-        <main class="container" style="display:flex; justify-content:center; align-items:center; padding: 40px 20px;">
-            <div class="form-container">
+        <main class="container form-page">
+            <div class="auth-form">
                 <h2>Вход в систему</h2>
                 <form action="https://httpbin.org/post" method="POST">
                     <div class="form-group">

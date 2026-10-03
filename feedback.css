@@ -1,0 +1,130 @@
+/* ===== Страница обратной связи ===== */
+
+.feedback-form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 20px;
+  background: white;
+  filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+}
+
+.feedback-form h2 {
+  margin: 0 0 30px;
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+  color: #333;
+}
+
+.feedback-form .form-group {
+  margin-bottom: 20px;
+}
+
+/* Только подписи полей (прямые потомки .form-group).
+   Подписи внутри .checkbox-group и .radio-option оформляются отдельно. */
+.feedback-form .form-group > label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Типы явно: иначе чекбокс согласия и все радиокнопки растянулись бы
+   на всю ширину формы */
+.feedback-form .form-group input[type="text"],
+.feedback-form .form-group input[type="email"],
+.feedback-form .form-group input[type="file"],
+.feedback-form .form-group select,
+.feedback-form .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 14px;
+}
+
+.feedback-form .form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.feedback-form .form-group input[type="file"] {
+  padding: 8px 0;
+  border: none;
+  border-radius: 0;
+}
+
+.feedback-form .radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feedback-form .radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feedback-form .radio-option input[type="radio"] {
+  margin: 0;
+}
+
+.feedback-form .checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.feedback-form .checkbox-group input[type="checkbox"] {
+  margin-top: 3px;
+}
+
+.feedback-form .checkbox-group label {
+  margin: 0;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.feedback-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #333;
+  color: white;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.feedback-form button:hover {
+  background: #555;
+}
+
+/* ===== Ссылки под формой ===== */
+.nav-links {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.nav-links a {
+  margin: 0 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: tomato;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .feedback-form {
+    padding: 24px 20px;
+  }
+}

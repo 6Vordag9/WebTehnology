@@ -1,0 +1,99 @@
+/* ===== Страница авторизации ===== */
+
+.auth-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 20px;
+  background: white;
+  filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+}
+
+.auth-form h2 {
+  margin: 0 0 30px;
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+  color: #333;
+}
+
+.auth-form .form-group {
+  margin-bottom: 20px;
+}
+
+/* Только подписи полей (прямые потомки .form-group).
+   Подпись чекбокса оформляется отдельно в .checkbox-group. */
+.auth-form .form-group > label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Типы явно: иначе чекбокс «Запомнить меня» растянулся бы на всю ширину */
+.auth-form .form-group input[type="text"],
+.auth-form .form-group input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 14px;
+}
+
+.auth-form .checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth-form .checkbox-group input[type="checkbox"] {
+  margin: 0;
+}
+
+.auth-form .checkbox-group label {
+  margin: 0;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #333;
+  color: white;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.auth-form button:hover {
+  background: #555;
+}
+
+/* ===== Ссылки под формой ===== */
+.nav-links {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.nav-links a {
+  margin: 0 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: tomato;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .auth-form {
+    padding: 24px 20px;
+  }
+}
