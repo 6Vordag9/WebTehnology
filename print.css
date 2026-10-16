@@ -185,6 +185,27 @@ body {
   margin: 0 0 18px;
 }
 
+/* ---------- Блок «Ваш заказ» ---------- */
+.order-empty,
+.order-category-title,
+.order-category-value,
+.order-total-title,
+.order-total-value {
+  margin: 0 0 6px;
+  font-size: 11pt;
+  color: #000000 !important;
+}
+
+.order-empty,
+.order-category-title,
+.order-total-title {
+  font-weight: 700;
+}
+
+.order-total {
+  margin-top: 12px;
+}
+
 .form-group {
   margin: 0 0 12px;
   break-inside: avoid;

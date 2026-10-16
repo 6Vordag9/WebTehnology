@@ -1,0 +1,15 @@
+{
+  "name": "food-fryday",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Food FRYDAY — сайт доставки фаст-фуда, лабораторные работы по веб-разработке",
+  "scripts": {
+    "lint": "npm run lint:js && npm run lint:html",
+    "lint:js": "eslint .",
+    "lint:html": "htmlhint *.html"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "htmlhint": "^1.1.4"
+  }
+}

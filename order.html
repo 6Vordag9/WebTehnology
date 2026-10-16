@@ -29,36 +29,19 @@
     </header>
 
     <main class="container">
-      <section class="menu-section">
+      <section class="menu-section" data-category="soup">
+        <h2>Выберите суп</h2>
+        <div class="dishes-grid"></div>
+      </section>
+
+      <section class="menu-section" data-category="main">
+        <h2>Выберите главное блюдо</h2>
+        <div class="dishes-grid"></div>
+      </section>
+
+      <section class="menu-section" data-category="drink">
         <h2>Выберите напиток</h2>
-        <div class="dishes-grid">
-          <div class="dish-card">
-            <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400&h=300&fit=crop"
-                 alt="Апельсиновый сок со свежим апельсином" width="400" height="300" loading="lazy">
-            <p class="dish-price">120₽</p>
-            <p class="dish-name">Апельсиновый сок</p>
-            <p class="dish-weight">300 мл</p>
-            <button type="button">Добавить</button>
-          </div>
-
-          <div class="dish-card">
-            <img src="apple_juese.jpg"
-                 alt="Яблочный сок с яблоком" width="400" height="300" loading="lazy">
-            <p class="dish-price">90₽</p>
-            <p class="dish-name">Яблочный сок</p>
-            <p class="dish-weight">300 мл</p>
-            <button type="button">Добавить</button>
-          </div>
-
-          <div class="dish-card">
-            <img src="carrot_jues.jpg"
-                 alt="Морковный сок со свежей морковью" width="400" height="300" loading="lazy">
-            <p class="dish-price">110₽</p>
-            <p class="dish-name">Морковный сок</p>
-            <p class="dish-weight">300 мл</p>
-            <button type="button">Добавить</button>
-          </div>
-        </div>
+        <div class="dishes-grid"></div>
       </section>
 
       <section class="order-section">
@@ -69,35 +52,19 @@
             <div class="order-column">
               <h3>Ваш заказ</h3>
 
-              <div class="form-group">
-                <label for="soup">Суп</label>
-                <select id="soup" name="soup">
-                  <option value="">-- Выберите суп --</option>
-                  <option value="tomato">Томатный суп с базиликом</option>
-                  <option value="mushroom">Крем-суп из белых грибов</option>
-                  <option value="chicken">Куриный суп с лапшой</option>
-                </select>
+              <div class="order-selection">
+                <p class="order-empty" id="order-empty">Ничего не выбрано</p>
+                <div class="order-categories" id="order-categories" hidden></div>
+                <div class="order-total" id="order-total" hidden>
+                  <h4 class="order-total-title">Стоимость заказа</h4>
+                  <p class="order-total-value" id="order-total-value">0₽</p>
+                </div>
               </div>
 
-              <div class="form-group">
-                <label for="main-dish">Главное блюдо</label>
-                <select id="main-dish" name="main_dish">
-                  <option value="">-- Выберите главное блюдо --</option>
-                  <option value="burger">Бургер «Классик»</option>
-                  <option value="pizza">Пицца «Пепперони»</option>
-                  <option value="hotdog">Хот-дог «Нью-Йорк»</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="drink">Напиток</label>
-                <select id="drink" name="drink">
-                  <option value="">-- Выберите напиток --</option>
-                  <option value="orange">Апельсиновый сок</option>
-                  <option value="apple">Яблочный сок</option>
-                  <option value="carrot">Морковный сок</option>
-                </select>
-              </div>
+              <!-- Скрытые поля: в них уходят keyword выбранных блюд -->
+              <input type="hidden" name="soup" value="">
+              <input type="hidden" name="main_dish" value="">
+              <input type="hidden" name="drink" value="">
 
               <div class="form-group">
                 <label for="comment">Комментарии к заказу</label>
@@ -173,5 +140,9 @@
       </div>
     </footer>
   </div>
+
+  <script src="dishes.js"></script>
+  <script src="render.js"></script>
+  <script src="order.js"></script>
 </body>
 </html>

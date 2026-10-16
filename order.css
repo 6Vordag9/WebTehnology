@@ -33,13 +33,19 @@
   transition: border 0.2s ease, background-color 0.2s ease;
 }
 
-.dish-card:hover {
+.dish-card:hover,
+.dish-card.dish-selected {
   border: 2px solid tomato;
 }
 
 .dish-card img {
   display: block;
   width: 100%;
+  /* height: auto в связке с aspect-ratio: карточки не разъезжаются
+     по высоте и не искажаются, даже если пропорции фото разные */
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   margin-bottom: 15px;
   border-radius: 35px;
 }
@@ -111,9 +117,54 @@
 
 .order-column h3 {
   margin: 0 0 20px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #111111;
+}
+
+/* ===== Блок «Ваш заказ» ===== */
+
+/* Ничего не выбрано */
+.order-empty {
+  margin: 0;
+  font-family: 'Manrope', Arial, sans-serif;
   font-size: 20px;
   font-weight: 700;
   color: #111111;
+}
+
+.order-category {
+  margin: 0 0 20px;
+}
+
+.order-category:last-child {
+  margin-bottom: 0;
+}
+
+.order-category-title,
+.order-total-title {
+  margin: 0 0 4px;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.order-category-value,
+.order-total-value {
+  margin: 0;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #111111;
+}
+
+.order-total {
+  margin-top: 28px;
+}
+
+.order-selection {
+  margin-bottom: 30px;
 }
 
 /* ===== Поля формы ===== */
@@ -280,6 +331,18 @@
 
   .order-title {
     font-size: 26px;
+  }
+
+  .order-column h3 {
+    font-size: 22px;
+  }
+
+  .order-empty,
+  .order-category-title,
+  .order-category-value,
+  .order-total-title,
+  .order-total-value {
+    font-size: 18px;
   }
 }
 
