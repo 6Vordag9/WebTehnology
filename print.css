@@ -1,23 +1,10 @@
-/* ===== Стили для печати =====
-   Подключается через <link rel="stylesheet" href="print.css" media="print">
-   и применяется только при предпросмотре и печати страницы (Ctrl+P).
 
-   Правила:
-   1. Только область действия через классы (никаких глобальных селекторов),
-      чтобы не затрагивать элементы без заданных печатных стилей.
-   2. Чёрный текст на белом фоне — принтер не печатает фон, поэтому тёмные
-      плашки и тени убираются, иначе текст на них станет нечитаемым.
-   3. Печатные стили подключены последними, поэтому переопределяют
-      styles.css / order.css / auth.css / feedback.css без !important.
-=================================== */
 
-/* ---------- Параметры страницы ---------- */
 @page {
   size: A4 portrait;
   margin: 15mm;
 }
 
-/* ---------- Базовый сброс ---------- */
 html,
 body {
   height: auto !important;
@@ -32,8 +19,6 @@ body {
   text-shadow: none;
 }
 
-/* Обёртка: снимаем flex-колонку и min-height, иначе футер уезжает
-   на отдельную пустую страницу. */
 .page-wrapper {
   display: block !important;
   min-height: 0 !important;
@@ -45,7 +30,7 @@ body {
   padding: 0 !important;
 }
 
-/* ---------- Шапка ---------- */
+
 .site-header {
   padding: 0 0 8px;
   margin: 0 0 16px;
@@ -59,7 +44,7 @@ body {
   color: #000000;
 }
 
-/* ---------- Скрываем интерактив и декор ---------- */
+
 .main-nav,
 .hero-image,
 .page-wrapper button,
@@ -68,7 +53,6 @@ body {
   display: none !important;
 }
 
-/* ---------- Заголовки ---------- */
 .content-section h2,
 .menu-section h2,
 .order-title,
@@ -81,6 +65,7 @@ body {
   color: #000000;
   break-after: avoid;
   page-break-after: avoid;
+  
 }
 
 /* ---------- Текст ---------- */
@@ -96,7 +81,7 @@ body {
   padding: 0;
 }
 
-/* ---------- Таблица ---------- */
+
 .content-section table {
   width: 100%;
   margin: 0 0 12px;
@@ -183,27 +168,6 @@ body {
   width: 100%;
   min-width: 0;
   margin: 0 0 18px;
-}
-
-/* ---------- Блок «Ваш заказ» ---------- */
-.order-empty,
-.order-category-title,
-.order-category-value,
-.order-total-title,
-.order-total-value {
-  margin: 0 0 6px;
-  font-size: 11pt;
-  color: #000000 !important;
-}
-
-.order-empty,
-.order-category-title,
-.order-total-title {
-  font-weight: 700;
-}
-
-.order-total {
-  margin-top: 12px;
 }
 
 .form-group {
