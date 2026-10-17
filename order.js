@@ -1,42 +1,35 @@
 /* global dishes */
 
-// Скрипт выбора блюд: добавление блюда в «Ваш заказ», подсчёт стоимости
-// и подстановка выбранных блюд (их keyword) в скрытые поля формы.
 
-// Описание категорий: подпись в блоке «Ваш заказ», текст для пустой
-// категории и имя скрытого поля формы, в которое уходит keyword блюда.
 const categorySettings = [
   { id: 'soup', title: 'Суп', emptyText: 'Блюдо не выбрано', fieldName: 'soup' },
   { id: 'main', title: 'Главное блюдо', emptyText: 'Блюдо не выбрано', fieldName: 'main_dish' },
   { id: 'drink', title: 'Напиток', emptyText: 'Напиток не выбран', fieldName: 'drink' },
 ];
 
-// Блюда, выбранные пользователем: категория -> объект блюда
+
 const selectedDishes = {};
 
 /**
- * Возвращает блюдо из массива dishes по его keyword.
- * @param {string} keyword — название блюда на латинице.
- * @returns {object|undefined} объект блюда.
+ * @param {string} keyword 
+ * @returns {object|undefined} .
  */
 function findDish(keyword) {
   return dishes.find((dish) => dish.keyword === keyword);
 }
 
 /**
- * Возвращает цену в виде строки: 195 -> "195₽".
- * @param {number} price — цена блюда.
- * @returns {string} цена с символом валюты.
+ * 
+ * @param {number} price 
+ * @returns {string} 
  */
 function formatPrice(price) {
   return `${price}₽`;
 }
 
 /**
- * Создаёт блок категории («Суп», «Главное блюдо», «Напиток»)
- * внутри раздела «Ваш заказ».
- * @param {object} setting — описание категории из categorySettings.
- * @returns {HTMLElement} элемент блока категории.
+ * @param {object} setting 
+ * @returns {HTMLElement} 
  */
 function createCategoryBlock(setting) {
   const block = document.createElement('div');
@@ -57,7 +50,7 @@ function createCategoryBlock(setting) {
 }
 
 /**
- * Создаёт все блоки категорий и кладёт их в раздел «Ваш заказ».
+ * 
  */
 function renderOrderBlock() {
   const list = document.querySelector('#order-categories');
@@ -66,10 +59,7 @@ function renderOrderBlock() {
   });
 }
 
-/**
- * Перерисовывает раздел «Ваш заказ» и «Стоимость заказа»
- * по текущему состоянию выбора.
- */
+
 function updateOrder() {
   let total = 0;
   let selectedCount = 0;
@@ -90,8 +80,7 @@ function updateOrder() {
     }
   });
 
-  // Если не выбрано ни одного блюда, показываем «Ничего не выбрано»,
-  // а блоки категорий и стоимость заказа скрываем.
+
   const isEmpty = selectedCount === 0;
 
   document.querySelector('#order-empty').hidden = !isEmpty;
@@ -101,9 +90,8 @@ function updateOrder() {
 }
 
 /**
- * Выбирает блюдо по keyword: записывает его в заказ, снимает выделение
- * с предыдущего блюда этой же категории и выделяет новое.
- * @param {string} keyword — название блюда на латинице.
+
+ * @param {string} keyword 
  */
 function selectDish(keyword) {
   const dish = findDish(keyword);
@@ -133,9 +121,6 @@ function selectDish(keyword) {
   updateOrder();
 }
 
-/**
- * Сбрасывает выбор: убирает выделение карточек и очищает «Ваш заказ».
- */
 function resetOrder() {
   Object.keys(selectedDishes).forEach((category) => {
     delete selectedDishes[category];
@@ -149,8 +134,7 @@ function resetOrder() {
 }
 
 /**
- * Обрабатывает клик по кнопке «Добавить» в любой карточке блюда.
- * @param {MouseEvent} event — событие клика.
+ * @param {MouseEvent} event 
  */
 function handleCardClick(event) {
   const card = event.target.closest('.dish-card');
