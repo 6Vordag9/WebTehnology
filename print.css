@@ -106,12 +106,17 @@ body {
   page-break-inside: avoid;
 }
 
-/* ---------- Карточки напитков ---------- */
+/* ---------- Карточки блюд ---------- */
 .dishes-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: stretch; /* в order.css стоит center — карточки должны занять колонку */
   gap: 8px;
+}
+
+/* Фильтры на бумаге не нужны */
+.filters {
+  display: none !important;
 }
 
 .dish-card {
@@ -127,6 +132,11 @@ body {
   filter: none !important;
   break-inside: avoid;
   page-break-inside: avoid;
+}
+
+/* Скрытые фильтром блюда не печатаем */
+.dish-card[hidden] {
+  display: none !important;
 }
 
 /* Картинка сверху, без float — иначе соседние карточки наезжают друг на друга */

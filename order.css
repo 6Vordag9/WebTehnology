@@ -10,6 +10,41 @@
   font-weight: 800;
 }
 
+/* ===== Фильтры категории ===== */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.filters .filter-button {
+  padding: 10px 24px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background-color: #f1eee9;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #111111;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filters .filter-button:hover {
+  background-color: #e4dfd6;
+}
+
+.filters .filter-button.active {
+  border-color: tomato;
+  background-color: tomato;
+  color: #ffffff;
+}
+
+.filters .filter-button.active:hover {
+  background-color: tomato;
+}
+
 /* ===== Сетка блюд ===== */
 .dishes-grid {
   display: grid;
@@ -36,6 +71,12 @@
 .dish-card:hover,
 .dish-card.dish-selected {
   border: 2px solid tomato;
+}
+
+/* Блюда, скрытые фильтром. Атрибут hidden сам по себе не работает:
+   у .dish-card задан display: flex, поэтому правило нужно продублировать */
+.dish-card[hidden] {
+  display: none;
 }
 
 .dish-card img {

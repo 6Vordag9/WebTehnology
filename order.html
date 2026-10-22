@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Оформите заказ в Food FRYDAY — выберите напиток, заполните форму и получите доставку по Москве.">
+  <meta name="description" content="Оформите заказ в Food FRYDAY — выберите суп, главное блюдо, салат или стартер, напиток и десерт, заполните форму и получите доставку по Москве.">
   <title>Food FRYDAY — Сделать заказ</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,16 +31,50 @@
     <main class="container">
       <section class="menu-section" data-category="soup">
         <h2>Выберите суп</h2>
+        <div class="filters" role="group" aria-label="Фильтры супов">
+          <button type="button" class="filter-button" aria-pressed="false" data-kind="fish">рыбный</button>
+          <button type="button" class="filter-button" aria-pressed="false" data-kind="meat">мясной</button>
+          <button type="button" class="filter-button" aria-pressed="false" data-kind="veg">вегетарианский</button>
+        </div>
         <div class="dishes-grid"></div>
       </section>
 
       <section class="menu-section" data-category="main">
         <h2>Выберите главное блюдо</h2>
+        <div class="filters" role="group" aria-label="Фильтры главных блюд">
+          <button type="button" class="filter-button" aria-pressed="false" data-kind="fish">рыбное</button>
+          <button type="button" class="filter-button" aria-pressed="false" data-kind="meat">мясное</button>
+          <button type="button" class="filter-button" aria-pressed="false" data-kind="veg">вегетарианское</button>
+        </div>
+        <div class="dishes-grid"></div>
+      </section>
+
+      <section class="menu-section" data-category="salad">
+        <h2>Выберите салат или стартер</h2>
+        <div class="filters" role="group" aria-label="Фильтры салатов и стартеров">
+          <button type="button" class="filter-button" aria-pressed="false" data-kind="fish">рыбный</button>
+          <button type="button" class="filter-button" aria-pressed="false" data-kind="meat">мясной</button>
+          <button type="button" class="filter-button" aria-pressed="false" data-kind="veg">вегетарианский</button>
+        </div>
         <div class="dishes-grid"></div>
       </section>
 
       <section class="menu-section" data-category="drink">
         <h2>Выберите напиток</h2>
+        <div class="filters" role="group" aria-label="Фильтры напитков">
+          <button type="button" class="filter-button" aria-pressed="false" data-kind="cold">холодный</button>
+          <button type="button" class="filter-button" aria-pressed="false" data-kind="hot">горячий</button>
+        </div>
+        <div class="dishes-grid"></div>
+      </section>
+
+      <section class="menu-section" data-category="dessert">
+        <h2>Выберите десерт</h2>
+        <div class="filters" role="group" aria-label="Фильтры десертов">
+          <button type="button" class="filter-button" aria-pressed="false" data-kind="small">маленькая порция</button>
+          <button type="button" class="filter-button" aria-pressed="false" data-kind="medium">средняя порция</button>
+          <button type="button" class="filter-button" aria-pressed="false" data-kind="large">большая порция</button>
+        </div>
         <div class="dishes-grid"></div>
       </section>
 
@@ -63,7 +97,9 @@
 
               <input type="hidden" name="soup" value="">
               <input type="hidden" name="main_dish" value="">
+              <input type="hidden" name="salad" value="">
               <input type="hidden" name="drink" value="">
+              <input type="hidden" name="dessert" value="">
 
               <div class="form-group">
                 <label for="comment">Комментарии к заказу</label>
@@ -142,6 +178,7 @@
 
   <script src="dishes.js"></script>
   <script src="render.js"></script>
+  <script src="filter.js"></script>
   <script src="order.js"></script>
 </body>
 </html>

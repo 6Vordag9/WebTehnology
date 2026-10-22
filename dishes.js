@@ -1,7 +1,16 @@
 /* exported dishes */
 
 
+/**
+ * Меню сайта.
+ *
+ * kind — тип блюда для фильтрации. Значение совпадает с data-kind
+ * соответствующей кнопки фильтра в order.html:
+ * soup / main / salad — fish, meat, veg;
+ * drink — cold, hot; dessert — small, medium, large.
+ */
 const dishes = [
+  /* ===== Суп ===== */
   {
     keyword: 'chicken-noodle-soup',
     name: 'Куриный суп с лапшой',
@@ -9,6 +18,7 @@ const dishes = [
     category: 'soup',
     count: '300 мл',
     image: 'image4.jpg',
+    kind: 'meat',
   },
   {
     keyword: 'tomato-soup',
@@ -17,6 +27,7 @@ const dishes = [
     category: 'soup',
     count: '250 мл',
     image: 'image2.jpg',
+    kind: 'veg',
   },
   {
     keyword: 'mushroom-cream-soup',
@@ -25,15 +36,37 @@ const dishes = [
     category: 'soup',
     count: '250 мл',
     image: 'image3.jpg',
+    kind: 'veg',
   },
   {
-    keyword: 'pepperoni-pizza',
-    name: 'Пицца «Пепперони»',
-    price: 365,
-    category: 'main',
-    count: '450 г',
-    image: 'pizza.jpg',
+    keyword: 'tom-yam',
+    name: 'Том-ям с креветками',
+    price: 650,
+    category: 'soup',
+    count: '500 мл',
+    image: 'menu/soups/tomyum.jpg',
+    kind: 'fish',
   },
+  {
+    keyword: 'norwegian-soup',
+    name: 'Норвежский суп с лососем',
+    price: 270,
+    category: 'soup',
+    count: '330 мл',
+    image: 'menu/soups/norwegian_soup.jpg',
+    kind: 'fish',
+  },
+  {
+    keyword: 'ramen',
+    name: 'Рамен с курицей',
+    price: 375,
+    category: 'soup',
+    count: '425 г',
+    image: 'menu/soups/ramen.jpg',
+    kind: 'meat',
+  },
+
+  /* ===== Главное блюдо ===== */
   {
     keyword: 'new-york-hotdog',
     name: 'Хот-дог «Нью-Йорк»',
@@ -41,6 +74,7 @@ const dishes = [
     category: 'main',
     count: '200 г',
     image: 'hotdog.jpg',
+    kind: 'meat',
   },
   {
     keyword: 'burger-classic',
@@ -49,7 +83,102 @@ const dishes = [
     category: 'main',
     count: '250 г',
     image: 'burger.jpg',
+    kind: 'meat',
   },
+  {
+    keyword: 'pizza-margarita',
+    name: 'Пицца «Маргарита»',
+    price: 450,
+    category: 'main',
+    count: '470 г',
+    image: 'menu/main_course/pizza-margarita.jpg',
+    kind: 'veg',
+  },
+  {
+    keyword: 'shrimp-pasta',
+    name: 'Паста с креветками',
+    price: 340,
+    category: 'main',
+    count: '280 г',
+    image: 'menu/main_course/shrimppasta.jpg',
+    kind: 'fish',
+  },
+  {
+    keyword: 'fish-rice',
+    name: 'Рыбная котлета с рисом и спаржей',
+    price: 320,
+    category: 'main',
+    count: '270 г',
+    image: 'menu/main_course/fishrice.jpg',
+    kind: 'fish',
+  },
+  {
+    keyword: 'fried-potatoes-with-mushrooms',
+    name: 'Жареная картошка с грибами',
+    price: 150,
+    category: 'main',
+    count: '250 г',
+    image: 'menu/main_course/fried-potatoes-with-mushrooms.jpg',
+    kind: 'veg',
+  },
+
+  /* ===== Салат или стартер ===== */
+  {
+    keyword: 'korean-salad',
+    name: 'Корейский салат с овощами и яйцом',
+    price: 330,
+    category: 'salad',
+    count: '250 г',
+    image: 'menu/salads_starters/saladwithegg.jpg',
+    kind: 'veg',
+  },
+  {
+    keyword: 'caesar-chicken',
+    name: 'Цезарь с цыпленком',
+    price: 370,
+    category: 'salad',
+    count: '220 г',
+    image: 'menu/salads_starters/caesar.jpg',
+    kind: 'meat',
+  },
+  {
+    keyword: 'caprese',
+    name: 'Капрезе с моцареллой',
+    price: 350,
+    category: 'salad',
+    count: '235 г',
+    image: 'menu/salads_starters/caprese.jpg',
+    kind: 'veg',
+  },
+  {
+    keyword: 'tuna-salad',
+    name: 'Салат с тунцом',
+    price: 480,
+    category: 'salad',
+    count: '250 г',
+    image: 'menu/salads_starters/tunasalad.jpg',
+    kind: 'fish',
+  },
+  {
+    keyword: 'fries-caesar-sauce',
+    name: 'Картофель фри с соусом Цезарь',
+    price: 280,
+    category: 'salad',
+    count: '235 г',
+    image: 'menu/salads_starters/frenchfries1.jpg',
+    kind: 'veg',
+  },
+  {
+    keyword: 'fries-ketchup',
+    name: 'Картофель фри с кетчупом',
+    price: 260,
+    category: 'salad',
+    count: '235 г',
+    image: 'menu/salads_starters/frenchfries2.jpg',
+    kind: 'veg',
+  },
+
+  /* ===== Напиток ===== */
   {
     keyword: 'orange-juice',
     name: 'Апельсиновый сок',
@@ -57,6 +186,7 @@ const dishes = [
     category: 'drink',
     count: '300 мл',
     image: 'orange_juice.jpg',
+    kind: 'cold',
   },
   {
     keyword: 'carrot-juice',
@@ -65,6 +195,7 @@ const dishes = [
     category: 'drink',
     count: '300 мл',
     image: 'carrot_jues.jpg',
+    kind: 'cold',
   },
   {
     keyword: 'apple-juice',
@@ -73,5 +204,89 @@ const dishes = [
     category: 'drink',
     count: '300 мл',
     image: 'apple_juese.jpg',
+    kind: 'cold',
+  },
+  {
+    keyword: 'cappuccino',
+    name: 'Капучино',
+    price: 180,
+    category: 'drink',
+    count: '300 мл',
+    image: 'menu/beverages/cappuccino.jpg',
+    kind: 'hot',
+  },
+  {
+    keyword: 'green-tea',
+    name: 'Зелёный чай',
+    price: 100,
+    category: 'drink',
+    count: '300 мл',
+    image: 'menu/beverages/greentea.jpg',
+    kind: 'hot',
+  },
+  {
+    keyword: 'black-tea',
+    name: 'Чёрный чай',
+    price: 90,
+    category: 'drink',
+    count: '300 мл',
+    image: 'menu/beverages/black-tea.jpg',
+    kind: 'hot',
+  },
+
+  /* ===== Десерт ===== */
+  {
+    keyword: 'cheesecake',
+    name: 'Чизкейк',
+    price: 240,
+    category: 'dessert',
+    count: '125 г',
+    image: 'menu/desserts/checheesecake.jpg',
+    kind: 'small',
+  },
+  {
+    keyword: 'chocolate-cheesecake',
+    name: 'Шоколадный чизкейк',
+    price: 260,
+    category: 'dessert',
+    count: '125 г',
+    image: 'menu/desserts/chocolatecheesecake.jpg',
+    kind: 'small',
+  },
+  {
+    keyword: 'chocolate-cake',
+    name: 'Шоколадный торт',
+    price: 270,
+    category: 'dessert',
+    count: '140 г',
+    image: 'menu/desserts/chocolatecake.jpg',
+    kind: 'small',
+  },
+  {
+    keyword: 'baklava',
+    name: 'Пахлава',
+    price: 220,
+    category: 'dessert',
+    count: '300 г',
+    image: 'menu/desserts/baklava.jpg',
+    kind: 'medium',
+  },
+  {
+    keyword: 'donuts-3',
+    name: 'Пончики (3 штуки)',
+    price: 410,
+    category: 'dessert',
+    count: '350 г',
+    image: 'menu/desserts/donuts.jpg',
+    kind: 'medium',
+  },
+  {
+    keyword: 'donuts-6',
+    name: 'Пончики (6 штук)',
+    price: 650,
+    category: 'dessert',
+    count: '700 г',
+    image: 'menu/desserts/donuts2.jpg',
+    kind: 'large',
   },
 ];

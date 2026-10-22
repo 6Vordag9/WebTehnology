@@ -11,6 +11,7 @@ function createDishCard(dish) {
   const card = document.createElement('div');
   card.className = 'dish-card';
   card.dataset.dish = dish.keyword;
+  card.dataset.kind = dish.kind;
 
   const image = document.createElement('img');
   image.src = dish.image;

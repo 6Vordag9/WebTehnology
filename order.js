@@ -4,7 +4,9 @@
 const categorySettings = [
   { id: 'soup', title: 'Суп', emptyText: 'Блюдо не выбрано', fieldName: 'soup' },
   { id: 'main', title: 'Главное блюдо', emptyText: 'Блюдо не выбрано', fieldName: 'main_dish' },
+  { id: 'salad', title: 'Салат/стартер', emptyText: 'Блюдо не выбрано', fieldName: 'salad' },
   { id: 'drink', title: 'Напиток', emptyText: 'Напиток не выбран', fieldName: 'drink' },
+  { id: 'dessert', title: 'Десерт', emptyText: 'Десерт не выбран', fieldName: 'dessert' },
 ];
 
 
