@@ -10,6 +10,66 @@
   font-weight: 800;
 }
 
+.combo-section {
+  margin-bottom: 50px;
+}
+
+.combo-title {
+  margin: 0 0 40px;
+  font-size: 32px;
+  font-weight: 800;
+  color: #111111;
+  text-align: center;
+}
+
+.combo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 20px;
+  align-items: start;
+}
+
+.combo-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+}
+
+.combo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.combo-item img {
+  display: block;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.combo-item img:hover {
+  transform: translateY(-8px) scale(1.1);
+}
+
+.combo-item p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111111;
+}
+
+.combo-item .combo-note {
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+  color: #555555;
+}
+
 /* ===== Фильтры категории ===== */
 .filters {
   display: flex;
@@ -349,9 +409,19 @@
 }
 
 /* ===== Адаптивность страницы заказа ===== */
+@media (max-width: 1000px) {
+  .combo-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 800px) {
   .dishes-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .combo-title {
+    font-size: 26px;
   }
 
   .dish-card {
@@ -392,6 +462,24 @@
     grid-template-columns: 1fr;
   }
 
+  .combo-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .combo-card {
+    gap: 14px;
+  }
+
+  .combo-item img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .combo-title {
+    font-size: 24px;
+  }
+
   .dish-card {
     padding: 20px;
     border-radius: 20px;
@@ -416,5 +504,84 @@
 
   .order-form .form-actions {
     flex-direction: column;
+  }
+}
+
+.notification {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.notification-box {
+  width: 100%;
+  max-width: 560px;
+  padding: 50px 40px;
+  border: 2px solid #111111;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.notification-text {
+  margin: 0 0 30px;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #111111;
+}
+
+.notification-button {
+  padding: 14px 60px;
+  border: 2px solid #111111;
+  border-radius: 30px;
+  background-color: #ffffff;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #111111;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.notification-button:hover {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+.notification-button:focus-visible {
+  outline: 2px solid tomato;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .notification-box {
+    padding: 35px 20px;
+  }
+
+  .notification-text {
+    font-size: 18px;
+  }
+
+  .notification-button {
+    padding: 12px 40px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  .combo-card {
+    gap: 8px;
+  }
+
+  .combo-item img {
+    width: 56px;
+    height: 56px;
   }
 }

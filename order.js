@@ -135,6 +135,79 @@ function resetOrder() {
   updateOrder();
 }
 
+function getOrderError() {
+  const hasSoup = selectedDishes.soup !== undefined;
+  const hasMain = selectedDishes.main !== undefined;
+  const hasSalad = selectedDishes.salad !== undefined;
+  const hasDrink = selectedDishes.drink !== undefined;
+  const hasDessert = selectedDishes.dessert !== undefined;
+  const hasBaseDish = hasSoup || hasMain || hasSalad;
+
+  if (!hasBaseDish) {
+    if (!hasDrink && !hasDessert) {
+      return 'Ничего не выбрано. Выберите блюда для заказа';
+    }
+
+    return 'Выберите главное блюдо';
+  }
+
+  if (!hasSoup && !hasMain) {
+    return 'Выберите суп или главное блюдо';
+  }
+
+  if (hasSoup && !hasMain && !hasSalad) {
+    return 'Выберите главное блюдо/салат/стартер';
+  }
+
+  if (!hasDrink) {
+    return 'Выберите напиток';
+  }
+
+  return null;
+}
+
+function showNotification(message) {
+  const previousNotification = document.querySelector('.notification');
+
+  if (previousNotification !== null) {
+    previousNotification.remove();
+  }
+
+  const overlay = document.createElement('div');
+  overlay.className = 'notification';
+
+  const box = document.createElement('div');
+  box.className = 'notification-box';
+
+  const text = document.createElement('p');
+  text.className = 'notification-text';
+  text.textContent = message;
+
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'notification-button';
+  button.textContent = 'Окей 👌';
+
+  button.addEventListener('click', () => {
+    overlay.remove();
+  });
+
+  box.append(text, button);
+  overlay.append(box);
+  document.body.append(overlay);
+}
+
+function handleSubmit(event) {
+  const error = getOrderError();
+
+  if (error === null) {
+    return;
+  }
+
+  event.preventDefault();
+  showNotification(error);
+}
+
 /**
  * @param {MouseEvent} event 
  */
@@ -155,4 +228,5 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', handleCardClick);
 
   document.querySelector('.order-form').addEventListener('reset', resetOrder);
+  document.querySelector('.order-form').addEventListener('submit', handleSubmit);
 });
